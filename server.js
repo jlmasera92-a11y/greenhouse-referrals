@@ -8,13 +8,13 @@ app.use(express.json());
 // Set these as environment variables before running:
 //   GREENHOUSE_SECRET   → your Greenhouse webhook secret key
 //   SLACK_WEBHOOK_URL   → your Slack Incoming Webhook URL
-//   SLACK_CHANNEL       → e.g. #referrals (optional override)
+//   SLACK_CHANNEL       → e.g. #talent-workflow-test (optional override)
 //   GREENHOUSE_TOKEN    → your Greenhouse API key (for fetching job details)
 // ────────────────────────────────────────────────────────────────────────────
 
 const GREENHOUSE_SECRET = process.env.GREENHOUSE_SECRET;
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
-const SLACK_CHANNEL = process.env.SLACK_CHANNEL || "#talent-channels-workflow-testing";
+const SLACK_CHANNEL = process.env.SLACK_CHANNEL || "#talent-workflow-test";
 const GREENHOUSE_TOKEN = process.env.GREENHOUSE_TOKEN;
 
 // Verify the webhook signature from Greenhouse
