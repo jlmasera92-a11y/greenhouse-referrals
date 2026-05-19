@@ -1,7 +1,7 @@
 {
   "name": "greenhouse-slack-webhook",
   "version": "1.0.0",
-  "description": "Webhook server: Greenhouse job_post_published → Slack referral message",
+  "description": "Webhook server: Greenhouse job_post_created → Slack referral message",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
