@@ -65,7 +65,7 @@ function buildSlackMessage(job) {
 
   // Find the live external job post URL
   const livePost = job_posts.find((p) => p.active && p.external) || job_posts[0];
-  const postingUrl = livePost?.absolute_url || "https://app.greenhouse.io";
+  const postingUrl = livePost?.absolute_url || "https://job-boards.greenhouse.io/medallionakafirstlayerai";
 
   // Custom fields — adjust field names to match your Greenhouse setup
   const priority = custom_fields?.priority?.value || custom_fields?.Priority || "N/A";
@@ -124,7 +124,7 @@ function buildSlackMessage(job) {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: "Please submit any referrals into <https://app.greenhouse.io/referrals/new|Greenhouse> and let me know if you have any questions!",
+          text: "Please submit any referrals into <https://app9.greenhouse.io/referrals/new|Greenhouse> and let me know if you have any questions!",
         },
       },
       {
@@ -143,7 +143,7 @@ function buildSlackMessage(job) {
               text: "Submit a Referral",
               emoji: true,
             },
-            url: "https://app.greenhouse.io/referrals/new",
+            url: "https://app9.greenhouse.io/referrals/new",
           },
         ],
       },
@@ -168,7 +168,7 @@ app.post("/greenhouse-webhook", async (req, res) => {
   }
 
   try {
-    const jobId = payload?.job?.id;
+    const jobId = payload?.job_id;
     if (!jobId) throw new Error("No job ID in payload");
 
     // 3. Fetch full job details from Greenhouse
