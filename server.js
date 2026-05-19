@@ -14,7 +14,7 @@ app.use(express.json());
 
 const GREENHOUSE_SECRET = process.env.GREENHOUSE_SECRET;
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
-const SLACK_CHANNEL = process.env.SLACK_CHANNEL || "#referrals";
+const SLACK_CHANNEL = process.env.SLACK_CHANNEL || "#talent-channels-workflow-testing";
 const GREENHOUSE_TOKEN = process.env.GREENHOUSE_TOKEN;
 
 // Verify the webhook signature from Greenhouse
@@ -163,7 +163,7 @@ app.post("/greenhouse-webhook", async (req, res) => {
   const { action, payload } = req.body;
 
   // 2. Only handle "job_post_published" events
-  if (action !== "job_post_published") {
+  if (action !== "job_post_created") {
     return res.status(200).json({ message: "Event ignored", action });
   }
 
